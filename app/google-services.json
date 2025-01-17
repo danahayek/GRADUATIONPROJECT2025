@@ -1,0 +1,127 @@
+{
+  "project_info": {
+    "project_number": "101843545019",
+    "firebase_url": "https://cloud-final-project-e28fb-default-rtdb.firebaseio.com",
+    "project_id": "cloud-final-project-e28fb",
+    "storage_bucket": "cloud-final-project-e28fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:101843545019:android:eae5736fa435b3a2c5f29e",
+        "android_client_info": {
+          "package_name": "com.example.GraduationProject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "101843545019-junr5v0mv64ca1m0o0voqs97iotm4pls.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJCFXoS027qRhyke9zCsNcuFqz-rOVDSs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "101843545019-junr5v0mv64ca1m0o0voqs97iotm4pls.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:101843545019:android:f9acd93e769c65adc5f29e",
+        "android_client_info": {
+          "package_name": "com.example.cloudfinalproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "101843545019-junr5v0mv64ca1m0o0voqs97iotm4pls.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJCFXoS027qRhyke9zCsNcuFqz-rOVDSs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "101843545019-junr5v0mv64ca1m0o0voqs97iotm4pls.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:101843545019:android:3ce9f9fe0ad3075ac5f29e",
+        "android_client_info": {
+          "package_name": "com.example.palliativecareguideline"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "101843545019-junr5v0mv64ca1m0o0voqs97iotm4pls.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJCFXoS027qRhyke9zCsNcuFqz-rOVDSs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "101843545019-junr5v0mv64ca1m0o0voqs97iotm4pls.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:101843545019:android:3edcf2437682d2b3c5f29e",
+        "android_client_info": {
+          "package_name": "com.example.palliativecareguidelinesTEST"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "101843545019-junr5v0mv64ca1m0o0voqs97iotm4pls.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJCFXoS027qRhyke9zCsNcuFqz-rOVDSs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "101843545019-junr5v0mv64ca1m0o0voqs97iotm4pls.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
