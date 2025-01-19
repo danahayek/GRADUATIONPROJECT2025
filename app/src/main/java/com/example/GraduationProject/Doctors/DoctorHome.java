@@ -210,19 +210,6 @@ FloatingActionButton fba;
         dialog.show();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     ////////////////////////////////////////////////////////////////////
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -239,7 +226,7 @@ FloatingActionButton fba;
 
                 break;
             case R.id.chatsettings:
-                startActivity(new Intent(DoctorHome.this, ChatDoctor.class));
+                startActivity(new Intent(DoctorHome.this, DoctorSettings.class));
 
                 break;
             case R.id.chatdcalendar:
