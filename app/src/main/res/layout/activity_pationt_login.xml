@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#80D1D9F4"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
     tools:context=".Pationts.PationtLogin">
 
     <TextView
@@ -13,50 +16,35 @@
         android:layout_height="75dp"
         android:gravity="center"
         android:text="Login"
+        android:layout_margin="20dp"
         android:textColor="@color/blue"
         android:textSize="35sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.593"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.172" />
+        android:fontFamily="@font/lato_bold" />
 
     <TextView
         android:id="@+id/text"
         android:layout_width="274dp"
         android:layout_height="44dp"
-        android:layout_marginEnd="55dp"
+        android:fontFamily="@font/lato_regular"
         android:gravity="center"
         android:text="Please register to continue."
         android:textColor="@color/blue"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.273" />
+        />
 
     <EditText
         android:id="@+id/emailLogin"
         android:layout_width="347dp"
         android:layout_height="55dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="36dp"
         android:ems="10"
+        android:layout_margin="20dp"
         android:background="@drawable/textfeild"
-
+        android:fontFamily="@font/lato_regular"
         android:hint=" Email:"
         android:inputType="textEmailAddress"
         android:drawableStart="@drawable/baseline_email_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.418" />
+
+        />
 
     <EditText
         android:id="@+id/passLogin"
@@ -65,45 +53,37 @@
         android:background="@drawable/textfeild"
         android:drawableStart="@drawable/baseline_lock_24"
         android:ems="10"
+        android:layout_margin="20dp"
+        android:fontFamily="@font/lato_regular"
         android:textDirection="rtl"
         android:hint="password:"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.546"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailLogin"
-        app:layout_constraintVertical_bias="0.115" />
+
+
+        />
 
     <Button
         android:id="@+id/login"
         android:layout_width="283dp"
         android:layout_height="59dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="192dp"
         android:backgroundTint="@color/blue"
-        android:text="Login!"
+        android:text="Login"
         android:textSize="22sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_margin="25dp"
+        android:fontFamily="@font/lato_bold"
+        />
 
     <TextView
         android:id="@+id/donthaveAccount"
         android:layout_width="227dp"
         android:layout_height="40dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="152dp"
         android:gravity="center"
+        android:fontFamily="@font/lato_regular"
         android:text="Don't Have an Accountg"
         android:textColor="@color/blue"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.814"
-        app:layout_constraintStart_toStartOf="parent" />
+        />
 
     <!--    <CheckBox-->
 <!--        android:id="@+id/checkBox"-->
@@ -116,4 +96,4 @@
 <!--        app:layout_constraintTop_toBottomOf="@+id/passLogin" />-->
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

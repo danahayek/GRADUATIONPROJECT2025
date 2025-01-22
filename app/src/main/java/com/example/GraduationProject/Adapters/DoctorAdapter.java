@@ -43,6 +43,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder
 
         holder.title.setText(mData.get(position).getTopic_title());
         holder.content.setText(mData.get(position).getTopic_content());
+
         holder.edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
