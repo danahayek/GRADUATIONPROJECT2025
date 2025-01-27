@@ -45,21 +45,23 @@ public class PationtAdapter extends RecyclerView.Adapter<PationtAdapter.ViewHold
         holder.title.setText(mData.get(position).getTopic_title());
         holder.content.setText(mData.get(position).getTopic_content());
         Picasso.with(mInflater.getContext()).load(mData.get(position).getImage()).into(holder.topicimage);
-      holder.card.setOnClickListener(new View.OnClickListener() {
+
+
+        holder.card.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-              itemClickListener2.onItemClick2(holder.getAdapterPosition(), mData.get(position).getId());
+              itemClickListener2.onItemClick2Patient(holder.getAdapterPosition(), mData.get(position).getId());
 
           }
       });
 
-        holder.notification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mClickListener.onItemClick(holder.getAdapterPosition(), mData.get(position).getId());
-
-            }
-        });
+//        holder.notification.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                mClickListener.onItemClick(holder.getAdapterPosition(), mData.get(position).getId());
+//
+//            }
+//        });
 //
     }
     //  private  int getRandomColor(){
@@ -86,16 +88,18 @@ public class PationtAdapter extends RecyclerView.Adapter<PationtAdapter.ViewHold
         public MaterialButton card;
         public ImageView edit;
         public ImageView topicimage;
-        public ImageView notification;
+     //   public ImageView notification;
 
         ViewHolder(View itemView) {
             super(itemView);
             this.title = itemView.findViewById(R.id.topictitle);
-            this.notification = itemView.findViewById(R.id.notification);
+           // this.notification = itemView.findViewById(R.id.notification);
 
             this.content = itemView.findViewById(R.id.topicdes);
             this.edit = itemView.findViewById(R.id.edit);
             this.card = itemView.findViewById(R.id.showmore);
+
+
             this.topicimage=itemView.findViewById(R.id.imagepationt);
             itemView.setOnClickListener(this);
         }
@@ -122,6 +126,8 @@ public class PationtAdapter extends RecyclerView.Adapter<PationtAdapter.ViewHold
     }
 
     public interface ItemClickListener2{
-        void onItemClick2(int position, String id);
+        void onItemClick2Patient(int position, String id);
     }
+
+
 }

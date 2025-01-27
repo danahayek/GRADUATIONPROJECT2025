@@ -1,7 +1,10 @@
 package com.example.GraduationProject.Adapters;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +15,11 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.GraduationProject.Pationts.DetailsScreen;
 import com.example.GraduationProject.R;
 import com.example.GraduationProject.modules.Topics;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.List;
 
@@ -121,4 +127,5 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder
     public interface ItemClickListener2{
         void onItemClick2(int position, String id);
     }
+
 }
