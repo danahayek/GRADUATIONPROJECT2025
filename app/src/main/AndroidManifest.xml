@@ -18,6 +18,9 @@
         android:theme="@style/Theme.graduation"
         tools:targetApi="31">
         <activity
+            android:name=".Pationts.ChatBotPage"
+            android:exported="false" />
+        <activity
             android:name=".Doctors.DoctorSettings"
             android:exported="false" />
         <activity

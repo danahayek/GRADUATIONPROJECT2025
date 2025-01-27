@@ -35,7 +35,7 @@
 
                         android:id="@+id/imagepationt"
                         android:layout_width="match_parent"
-                        android:layout_height="194dp"
+                        android:layout_height="wrap_content"
                         android:contentDescription="image"
                         android:scaleType="centerCrop" />
 
@@ -63,14 +63,17 @@
                             android:textAppearance="?attr/textAppearanceBody2"
                             android:textColor="?android:attr/textColorSecondary" />
 
-                        <ImageView
-                            android:id="@+id/notification"
-                            android:layout_width="44dp"
-                            android:layout_height="44dp"
-                            android:layout_gravity="right"
-                            android:src="@drawable/baseline_circle_notifications_24">
-
-                        </ImageView>
+                        <com.google.android.material.button.MaterialButton
+                            style="?attr/borderlessButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="8dp"
+                            android:text="More..."
+                            android:textColor="#8E1A1A"
+                            android:id="@+id/showmore"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
@@ -84,17 +87,7 @@
 
                     </LinearLayout>
 
-                    <com.google.android.material.button.MaterialButton
-                        style="?attr/borderlessButtonStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="8dp"
-                        android:text="More..."
-                        android:textColor="#8E1A1A"
-                        android:id="@+id/showmore"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+
 
 
                 </LinearLayout>

@@ -26,6 +26,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -51,7 +52,9 @@ public class HomeScreen extends AppCompatActivity implements PationtAdapter.Item
     private FirebaseAnalytics mFirebaseAnalytics;
 
     PationtAdapter adapter;
-    EditText Updatetitle;
+
+
+    FloatingActionButton fab;
     EditText Updatenote;
     LinearLayoutManager layoutManager = new LinearLayoutManager(this);
     RecyclerView rv;
@@ -68,7 +71,15 @@ public class HomeScreen extends AppCompatActivity implements PationtAdapter.Item
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
 
+        fab = findViewById(R.id.ChatBotPatient);
 
+        fab.setOnClickListener(view -> {
+            Log.d("HomeScreen", "FAB clicked");
+
+            // Open the ChatBotActivity
+            Intent intent = new Intent(HomeScreen.this, ChatBotPage.class);
+            startActivity(intent);
+        });
         FirebaseMessaging.getInstance().subscribeToTopic("Topics")
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -211,17 +222,17 @@ public class HomeScreen extends AppCompatActivity implements PationtAdapter.Item
     }
 
     @Override
-    public void onItemClick2(int position, String id) {
+    public void onItemClick2Patient(int position, String id) {
         btnEvent("topic","topics","MaterialButton");
         Intent intent= new Intent(this,DetailsScreen.class);
-       intent.putExtra("title", items.get(position).getTopic_title());
-       intent.putExtra("content", items.get(position).getTopic_content());
+        intent.putExtra("title", items.get(position).getTopic_title());
+        intent.putExtra("content", items.get(position).getTopic_content());
         StorageReference storageReference;
-       SimpleDateFormat Format=new SimpleDateFormat("yyyy_MM_dd_HH_mm_s", Locale.CANADA);
-       Date date1=new Date();
+        SimpleDateFormat Format=new SimpleDateFormat("yyyy_MM_dd_HH_mm_s", Locale.CANADA);
+        Date date1=new Date();
         String filename1= Format.format(date1);
-      storageReference= FirebaseStorage.getInstance().getReference("videos.mp4/");
-       storageReference.getDownloadUrl().addOnSuccessListener( video_Uri -> {
+        storageReference= FirebaseStorage.getInstance().getReference("videos.mp4/");
+        storageReference.getDownloadUrl().addOnSuccessListener( video_Uri -> {
           String link=video_Uri.toString();
         intent.putExtra("link",link);
            startActivity(intent);
