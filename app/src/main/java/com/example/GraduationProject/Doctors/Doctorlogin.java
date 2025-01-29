@@ -45,14 +45,14 @@ public class Doctorlogin extends AppCompatActivity {
             logindoctorUser();
         });
 
-        dont_have_account.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Doctorlogin.this, Doctorsign.class));
-
-
-            }
-        });
+//        dont_have_account.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(Doctorlogin.this, Doctorsign.class));
+//
+//
+//            }
+//        });
         if (firebaseAuth.getCurrentUser()!= null){
             startActivity(new Intent(Doctorlogin.this, DoctorHome.class));
 

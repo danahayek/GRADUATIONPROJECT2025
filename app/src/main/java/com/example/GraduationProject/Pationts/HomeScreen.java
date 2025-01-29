@@ -30,6 +30,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.storage.FirebaseStorage;
@@ -58,6 +59,7 @@ public class HomeScreen extends AppCompatActivity implements PationtAdapter.Item
     EditText Updatenote;
     LinearLayoutManager layoutManager = new LinearLayoutManager(this);
     RecyclerView rv;
+
     @SuppressLint({"MissingInflatedId", "CommitTransaction"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,12 +67,13 @@ public class HomeScreen extends AppCompatActivity implements PationtAdapter.Item
         setContentView(R.layout.activity_home_screen);
         rv = findViewById(R.id.recyclerview);
         items = new ArrayList<Topics>();
-        adapter =new PationtAdapter(this,items,this,this);
+        adapter = new PationtAdapter(this, items, this, this);
         getTopics();
         searchView = findViewById(R.id.searchview);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
 
+        ///  start : fab is the chat bot code  (floating button )
         fab = findViewById(R.id.ChatBotPatient);
 
         fab.setOnClickListener(view -> {
@@ -84,19 +87,22 @@ public class HomeScreen extends AppCompatActivity implements PationtAdapter.Item
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Log.e("a","Done");
+                        Log.e("a", "Done");
                     }
-                })     .addOnFailureListener(new OnFailureListener() {
+                }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.e("a","Failed");
+                        Log.e("a", "Failed");
 
                     }
-                })  ;
+                });
+        //  end : fab is the chat bot code  (floating button )
+
+        // start : search code connected to firebase
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-               searchtopic(query);
+                searchtopic(query);
 
                 return false;
             }
@@ -111,39 +117,45 @@ public class HomeScreen extends AppCompatActivity implements PationtAdapter.Item
     }
 
     private void searchtopic(String query) {
-        db.collection("Topics").whereEqualTo("topic_title",query).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                for (DocumentSnapshot documentSnapshot : task.getResult()) {
-                    if (documentSnapshot.exists()) {
-                        items.clear();
-                        String id = documentSnapshot.getId();
-                        String title = documentSnapshot.getString("topic_title");
-                        String content = documentSnapshot.getString("topic_content");
-                        String video = documentSnapshot.getString("topic_video");
-                        String image = documentSnapshot.getString("topic_image");
+        db.collection("Topics")
+                .orderBy("topic_title")
+                .startAt(query)
+                .endAt(query + "\uf8ff")
+                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        for (DocumentSnapshot documentSnapshot : task.getResult()) {
+                            if (documentSnapshot.exists()) {
+                                items.clear();
+                                String id = documentSnapshot.getId();
+                                String title = documentSnapshot.getString("topic_title");
+                                String content = documentSnapshot.getString("topic_content");
+                                String video = documentSnapshot.getString("topic_video");
+                                String image = documentSnapshot.getString("topic_image");
 
 
-                        Topics topics = new Topics(id, title ,content,image,video);
-                        items.add(topics);
+                                Topics topics = new Topics(id, title, content, image, video);
+                                items.add(topics);
 
-                        rv.setLayoutManager(layoutManager);
-                        rv.setHasFixedSize(true);
-                        rv.setAdapter(adapter);
-                        ;
-                        adapter.notifyDataSetChanged();
-                        Log.e("LogDATA", items.toString());
+                                rv.setLayoutManager(layoutManager);
+                                rv.setHasFixedSize(true);
+                                rv.setAdapter(adapter);
+                                ;
+                                adapter.notifyDataSetChanged();
+                                Log.e("LogDATA", items.toString());
+
+                            }
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
 
                     }
-                }
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-
-            }
-        });
+                });
     }
+    // end : search code connected to firebase
 
 
     @Override
@@ -169,9 +181,10 @@ public class HomeScreen extends AppCompatActivity implements PationtAdapter.Item
 
         }
 
-           return true;
+        return true;
     }
-    public  void getTopics(){
+
+    public void getTopics() {
         db.collection("Topics").get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @SuppressLint("NotifyDataSetChanged")
@@ -190,7 +203,7 @@ public class HomeScreen extends AppCompatActivity implements PationtAdapter.Item
                                     String image = documentSnapshot.getString("topic_image");
 
 
-                                    Topics topics = new Topics(id, title ,content,image,video);
+                                    Topics topics = new Topics(id, title, content, image, video);
                                     items.add(topics);
 
                                     rv.setLayoutManager(layoutManager);
@@ -222,7 +235,7 @@ public class HomeScreen extends AppCompatActivity implements PationtAdapter.Item
     }
 
     @Override
-    public void onItemClick2Patient(int position, String id) {
+    public void onItemClick2(int position, String id) {
         btnEvent("topic","topics","MaterialButton");
         Intent intent= new Intent(this,DetailsScreen.class);
         intent.putExtra("title", items.get(position).getTopic_title());
@@ -233,10 +246,10 @@ public class HomeScreen extends AppCompatActivity implements PationtAdapter.Item
         String filename1= Format.format(date1);
         storageReference= FirebaseStorage.getInstance().getReference("videos.mp4/");
         storageReference.getDownloadUrl().addOnSuccessListener( video_Uri -> {
-          String link=video_Uri.toString();
-        intent.putExtra("link",link);
-           startActivity(intent);
-       });
+            String link=video_Uri.toString();
+            intent.putExtra("link",link);
+            startActivity(intent);
+        });
 
     }
 
@@ -251,4 +264,6 @@ public class HomeScreen extends AppCompatActivity implements PationtAdapter.Item
         bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, content);
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
     }
+
+
 }

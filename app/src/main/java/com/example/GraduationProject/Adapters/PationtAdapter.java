@@ -1,6 +1,7 @@
 package com.example.GraduationProject.Adapters;
 
 import android.annotation.SuppressLint;
+import android.content.ContentProviderClient;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,14 +47,14 @@ public class PationtAdapter extends RecyclerView.Adapter<PationtAdapter.ViewHold
         holder.content.setText(mData.get(position).getTopic_content());
         Picasso.with(mInflater.getContext()).load(mData.get(position).getImage()).into(holder.topicimage);
 
-
         holder.card.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-              itemClickListener2.onItemClick2Patient(holder.getAdapterPosition(), mData.get(position).getId());
+            @Override
+            public void onClick(View view) {
+                itemClickListener2.onItemClick2(holder.getAdapterPosition(), mData.get(position).getId());
 
-          }
-      });
+            }
+        });
+
 
 //        holder.notification.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -126,8 +127,6 @@ public class PationtAdapter extends RecyclerView.Adapter<PationtAdapter.ViewHold
     }
 
     public interface ItemClickListener2{
-        void onItemClick2Patient(int position, String id);
+        void onItemClick2(int position, String id);
     }
-
-
 }

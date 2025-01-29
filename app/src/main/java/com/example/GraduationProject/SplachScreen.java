@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.GraduationProject.NEW.NewChooseScreen;
 import com.example.GraduationProject.Pationts.chooseScreen;
 
 
@@ -18,7 +19,7 @@ public class SplachScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplachScreen.this, chooseScreen.class));
+                startActivity(new Intent(SplachScreen.this, NewChooseScreen.class));
                 finish();
             }
 
