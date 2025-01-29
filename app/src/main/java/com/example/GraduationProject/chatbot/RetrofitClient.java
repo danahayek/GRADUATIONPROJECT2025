@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
 
-    private static final String BASE_URL = "https://api.openai.com/";
+    private static final String BASE_URL = "https://api.openai.com/v1/";
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient() {
